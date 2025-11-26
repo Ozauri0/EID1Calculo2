@@ -231,7 +231,7 @@ export default function EnergySimulator() {
                 value={cycleTime}
                 onChange={setCycleTime}
                 min={1}
-                max={10}
+                max={24}
                 step={0.5}
                 unit="h"
               />
