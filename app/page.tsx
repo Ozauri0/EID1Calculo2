@@ -145,7 +145,7 @@ const ModelControls = ({
 export default function EnergySimulator() {
   // State
   const [cycleTime, setCycleTime] = useState(4); // Hours
-  const [costPerKWh, setCostPerKWh] = useState(120); // CLP
+  const [costPerKWh, setCostPerKWh] = useState(160.55); // CLP
 
   // Model A Defaults
   const [kA, setKA] = useState(200);
@@ -208,11 +208,11 @@ export default function EnergySimulator() {
               <Leaf className="w-6 h-6 text-white" />
             </div>
             <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-600">
-              Araucanía Data Energy Sim
+              Araucanía Data Energy
             </h1>
           </div>
           <div className="text-sm text-slate-500">
-            Cálculo II - Proyecto Semestral
+            Cálculo II - EID1
           </div>
         </div>
       </header>
@@ -382,7 +382,7 @@ export default function EnergySimulator() {
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <Card
-                title="Pico de Potencia"
+                title="Peak de Potencia"
                 value={`${results.peakA.power.toFixed(1)} W vs ${results.peakB.power.toFixed(1)} W`}
                 subtext={`Ocurre en t=${results.peakA.time.toFixed(1)}h / t=${results.peakB.time.toFixed(1)}h`}
                 icon={Zap}
