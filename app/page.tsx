@@ -145,7 +145,7 @@ const ModelControls = ({
 export default function EnergySimulator() {
   // State
   const [cycleTime, setCycleTime] = useState(4); // Hours
-  const [costPerKWh, setCostPerKWh] = useState(160.55); // CLP
+  const [costPerKWh, setCostPerKWh] = useState<number | string>(160.55); // CLP
 
   // Model A Defaults
   const [kA, setKA] = useState(200);
@@ -174,8 +174,8 @@ export default function EnergySimulator() {
     const energyA = calculateIntervalEnergy(cycleTime, kA, aA); // Wh
     const energyB = calculateIntervalEnergy(cycleTime, kB, aB); // Wh
 
-    const costA = (energyA / 1000) * costPerKWh;
-    const costB = (energyB / 1000) * costPerKWh;
+    const costA = (energyA / 1000) * Number(costPerKWh);
+    const costB = (energyB / 1000) * Number(costPerKWh);
 
     const peakA = findPeak(kA, aA);
     const peakB = findPeak(kB, aB);
@@ -246,7 +246,7 @@ export default function EnergySimulator() {
                   <input
                     type="number"
                     value={costPerKWh}
-                    onChange={(e) => setCostPerKWh(parseFloat(e.target.value))}
+                    onChange={(e) => setCostPerKWh(e.target.value)}
                     className="w-full pl-8 pr-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-green-500 outline-none transition-all"
                   />
                 </div>
